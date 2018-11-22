@@ -1,0 +1,130 @@
+.header-content-container {
+	display: inline-block;
+	width: calc(100% - 200px);
+}
+
+.header {
+	background: url(img/heder.jpg)center center no-repeat;
+	color: #fff;
+	text-align: left;
+	background-size: cover;/* резиновый фон*/
+	padding: 50px ;
+	margin-bottom: 10px;
+	height: 50px;
+	border: 4px solid black;
+}
+
+.content{
+	background: url(img/content.jpg)center center no-repeat;
+	color: #0026FF;
+	text-align: left;
+	background-size: cover;/* резиновый фон*/
+	padding: 
+	width: 100%;
+    height: 340px;
+    border: 4px solid black;
+	margin-top: 10px;
+}
+
+.toggle-menu.closed-menu{
+	display:block;
+	width:50px;
+	height:50px;
+	cursor:pointer;
+	border: 2px solid black;
+	border-radius:10px;
+	background-color: #0026FF;
+	
+}
+
+.toggle-menu.opened-menu{
+	display:block;
+	color:red; 
+	width:50px;
+	height:50px;
+	cursor:pointer;
+	border: 2px solid #0026FF;
+	border-radius:10px;
+	background-color: black;
+	color:#0026FF;
+	
+}
+.app-container.opened-sidebar .sidebar {
+	display: inline-block;
+}
+
+.app-container.closed-sidebar .sidebar {
+	display: none;
+	
+}
+.sidebar{
+	display:block;
+	width:120px;
+	height:120px;
+    border: 2px solid black;
+    background-color: #0026FF;
+    border-radius:10px;
+    float: left;
+}
+
+.login-avatar.closed{
+	display:inline-block;
+	width:140px;
+	height:80px;
+	cursor:pointer;
+	border: 2px solid black;
+	border-radius:10px;
+	background-color: #0026FF;
+	margin-left:300px;
+	margin-bottom: 5px;
+}
+
+.login-avatar.opened{
+	display:inline-block;
+	width:140px;
+	height:80px;
+	cursor:pointer;
+	border: 2px solid #0026FF;
+	border-radius:10px;
+	background-color: black
+	margin-left:300px;
+	margin-bottom: 5px;
+
+}
+.avatar{
+	background:url(img/undefinedUser.jpg );
+	background-size: 60px;
+	display:block;
+	width:60px;
+	height:60px;
+	border: 2px solid black;
+	border-radius:10px;
+	margin-bottom: 5px;
+	margin-top: 7px;
+	margin-left: 5px;
+	float: left;
+}
+.login{
+	display:block;
+	color: black;
+	background:#0026FF;
+	font: 50%
+	width:60px;
+	height:60px;
+	border: 2px solid black;
+	border-radius:10px;
+	text-align: center;
+	margin: 7px 5px 5px 70px;
+	
+}
+
+.sidebarLoginAvatarOpened{
+	display:inline-block;
+	width:120px;
+	height:120px;
+    border: 2px solid black;
+    background-color: #0026FF;
+    border-radius:10px;   
+}
+.sidebarLoginAvatarClosed{
+	display:none;
