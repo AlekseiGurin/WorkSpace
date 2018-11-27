@@ -7,12 +7,13 @@
 	background: url(img/heder.jpg)center center no-repeat;
 	text-align: left;
 	background-size: cover;/* резиновый фон*/
-	padding: 0px ;
-	margin: 0px;
 	height: 150px;
 	border: 4px solid black;
 }
-
+.header-content-container * {
+	margin:0px;
+	padding:0px;
+}
 .content{
 	background: url(img/content.jpg)center center no-repeat;
 	color: #0026FF;
@@ -24,13 +25,34 @@
     border: 4px solid black;
 	margin-top: 10px;
 }
+.toggle-menu a{
+	text-align:center;
+	display:block;
+	text-decoration:none;
+	color:black;
+	text-transform:uppercase;
+	border-radius:10px;
+	padding:18px 15px 15px 15px;
+	margin-left:-11px;
+	
+	
+}
+.toggle-menu a:hover{
+	background:#0d385dd9;
+	color:#2aa59a;
+	box-shadow:0 0 30px rgba(0,0,0,0.5);
+	transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+}
 .toggle-menu{
+	display:block;
 	position: absolute;
 	margin-top:47px;
-	margin-left:30px;	
+	margin-left:30px;
+	box-shadow:0 0 20px rgba(0, 0, 0, 0.8);	
+    
 }
+
 .toggle-menu.closed-menu{
-	display:block;
 	width:50px;
 	height:50px;
 	cursor:pointer;
@@ -41,8 +63,6 @@
 }
 
 .toggle-menu.opened-menu{
-	display:block;
-	color:red; 
 	width:50px;
 	height:50px;
 	cursor:pointer;
@@ -86,8 +106,8 @@ text-decoration:none
 .sidebar li a:hover{
 	background:#0d385dd9;
 	color:#2aa59a;
-	box-shadow:1px #325f86;
-	transition: all 0,2s cubic-bezier(0.45, 0.05, 0.55, 0.95)
+	box-shadow:0 0 30px rgba(8, 8, 8, 0.81);
+    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
 }
 .sidebar li ul{
 	display: none;
@@ -99,11 +119,17 @@ text-decoration:none
 
 
 
+.login-avatar{
+	position:absolute;
+	display:block;
+	box-shadow:0 0 30px rgba(8, 8, 8, 0.81);
+    transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    margin-left:250px;
+
+}
 
 
 .login-avatar.closed{
-    position:absolute;
-	display:inline-block;
 	width:140px;
 	height:80px;
 	cursor:pointer;
@@ -111,12 +137,10 @@ text-decoration:none
 	border-radius:10px;
 	background-color: #0026FF;
 	bottom: 315px;
-	margin-left:250px;
+	
 }
 
 .login-avatar.opened{
-	position:absolute;
-	display:inline-block;
 	width:140px;
 	height:80px;
 	cursor:pointer;
@@ -124,14 +148,14 @@ text-decoration:none
 	border-radius:10px;
 	background-color: black;
 	bottom: 315px;
-	margin-left:250px;	
+		
 
 	
 
 }
 .avatar{
 	background:url(img/undefinedUser.jpg );
-	background-size: 60px;
+	background-size: contain;
 	display:block;
 	width:60px;
 	height:60px;
@@ -157,13 +181,16 @@ text-decoration:none
 }
 
 .sidebarLoginAvatarOpened{
+	position:absolute;
 	font-family: 'Chakra Petch', sans-serif;
 	display:inline-block;
 	width:120px;
 	height:120px;
     border: 2px solid black;
     background-color: #0026FF;
-    border-radius:10px;  
+    border-radius:10px; 
+    margin-top:250px;
+    margin-left:-150px;
 }
 .sidebarLoginAvatarClosed{
 	display:none;}
@@ -190,8 +217,8 @@ text-decoration:none
 .sidebarLoginAvatarOpened li a:hover{
 	background:#0d385dd9;
 	color:#2aa59a;
-	box-shadow:1px #325f86;
-	transition: all 0,2s cubic-bezier(0.45, 0.05, 0.55, 0.95)
+	box-shadow:0 0 30px rgba(8, 8, 8, 0.81);
+    transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
 }
 
 

@@ -15,11 +15,15 @@ document.addEventListener('DOMContentLoaded', ready);
 	  console.log(userReturn.login)
 	  document.getElementById('strLogin').innerHTML = userReturn.login;
 	   
-	  var sidebarMenuButton = document.getElementById('jsSidebarMenuButton');	
-	  var appContainer = document.getElementById('jsAppContainer');
-	  sidebarMenuButton.onclick = handleSidebarMenuButtonClick;
+
+	    var sidebarMenuButton = document.getElementById('jsSidebarMenuButton'); 
+        var appContainer = document.getElementById('jsAppContainer');
+        sidebarMenuButton.onclick = handleSidebarMenuButtonClick;
 
 	  function handleSidebarMenuButtonClick(event) {
+        var sidebarMenuButton = document.getElementById('jsSidebarMenuButton'); 
+        var appContainer = document.getElementById('jsAppContainer');
+        sidebarMenuButton.onclick = handleSidebarMenuButtonClick;
 	    var button = event.target;
         console.log(button.classList);
         console.log(event.type + "на" + event.currentTarget);
@@ -41,7 +45,14 @@ document.addEventListener('DOMContentLoaded', ready);
         
         menuLoginAvatar.classList.toggle('sidebarLoginAvatarOpened');
         menuLoginAvatar.classList.toggle('sidebarLoginAvatarClosed');
+       
+        var exitLog = document.getElementById('logOut');
+        exitLog.onclick=handleLogaut;
+      
+        function handleLogaut(){
+        console.log('LOGOUT');
         
+        }
 
 
 	 

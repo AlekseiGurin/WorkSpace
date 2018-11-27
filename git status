@@ -1,0 +1,534 @@
+[33mcommit 80cde5b5177bd6042972ab6505eff962648fe636[m
+Author: Aleksei <dmb2009isr@bk.ru>
+Date:   Sun Nov 25 11:49:40 2018 +0700
+
+    add hover sidebar and sidebarLoginAvatar
+
+[1mdiff --git a/index.html b/index.html[m
+[1mindex dc409df..a9c085d 100755[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -1,10 +1,11 @@[m
+ <!DOCTYPE html>[m
+ <html>[m
+ <head>[m
+[31m-<meta charset="utf-8"> [m
+[31m-<link rel="stylesheet" type="text/css" href="mainStyle.css" />[m
+[31m-[m
+[31m-	<title> Welcom to the Future!!! </title>[m
+[32m+[m[32m    <meta charset="utf-8">[m[41m [m
+[32m+[m[32m    <link rel="stylesheet" type="text/css" href="mainStyle.css" />[m[41m[m
+[32m+[m[32m    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:300i" rel="stylesheet">[m[41m[m
+[32m+[m[32m    <script src="https://use.fontawesome.com/58794203b7.js"></script>[m[41m[m
+[32m+[m[32m    <title> Welcom to the Future!!! </title>[m[41m[m
+ </head>[m
+ <body>[m
+ 	<div id="jsAppContainer" class="app-container closed-sidebar">[m
+[36m@@ -31,19 +32,26 @@[m
+ 	    </div>[m
+ 	    <div class="sidebar">[m
+ 	    	<ul>[m
+[31m-	    	   <li>New game</li>[m
+[31m-	    	   <li>Load</li>[m
+[31m-	    	   <li>Save</li>[m
+[31m-	    	   <li>Options</li>[m
+[31m-	    	   <li>Exit</li>[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-arrow-right" aria-hidden="true"></i>New game</a>[m[41m[m
+[32m+[m[32m                    <ul>[m[41m[m
+[32m+[m[41m                    [m	[32m<li><a href="#">level of difficulti</a></li>[m[41m[m
+[32m+[m[41m                    [m	[32m<li><a href="#">Easy</a></li>[m[41m[m
+[32m+[m[41m                    [m	[32m<li><a href="#">Hard</a></li>[m[41m[m
+[32m+[m[41m                    [m	[32m<li><a href="#">Very hard</a></li>[m[41m[m
+[32m+[m[32m                    </ul>[m[41m[m
+[32m+[m	[41m    [m	[32m   </li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-share-square-o" aria-hidden="true"></i>Load</a></li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</a></li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-cogs" aria-hidden="true"></i>Options</a></li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-times" aria-hidden="true"></i>Exit</a></li>[m[41m[m
+ 	    	</ul>[m
+ 	    </div>	[m
+ 	    <div id="jsMenuLoginAvatar" class="sidebarLoginAvatarClosed">[m
+ 	    	<ul>[m
+[31m-	    	   <li>Profile</li>[m
+[31m-	    	   <li>Componi Profile</li>[m
+[31m-	    	   <li>Setting</li>[m
+[31m-	    	   <li>Logout</li>[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-address-card" aria-hidden="true"></i>Profile</a></li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-apple" aria-hidden="true"></i>Compani Profile</a></li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-cog" aria-hidden="true"></i>Setting</a></li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li><a href = "#"><i class="fa fa-undo" aria-hidden="true"></i>Logout</a></li>[m[41m[m
+ 	    	</ul>[m
+ 	    </div>	[m
+ 	</div>[m
+[1mdiff --git a/mainStyle.css b/mainStyle.css[m
+[1mindex a77771b..24b6425 100755[m
+[1m--- a/mainStyle.css[m
+[1m+++ b/mainStyle.css[m
+[36m@@ -5,12 +5,11 @@[m
+ [m
+ .header {[m
+ 	background: url(img/heder.jpg)center center no-repeat;[m
+[31m-	color: #fff;[m
+ 	text-align: left;[m
+ 	background-size: cover;/* резиновый фон*/[m
+[31m-	padding: 50px ;[m
+[31m-	margin-bottom: 10px;[m
+[31m-	height: 50px;[m
+[32m+[m	[32mpadding: 0px ;[m[41m[m
+[32m+[m	[32mmargin: 0px;[m[41m[m
+[32m+[m	[32mheight: 150px;[m[41m[m
+ 	border: 4px solid black;[m
+ }[m
+ [m
+[36m@@ -25,7 +24,11 @@[m
+     border: 4px solid black;[m
+ 	margin-top: 10px;[m
+ }[m
+[31m-[m
+[32m+[m[32m.toggle-menu{[m[41m[m
+[32m+[m	[32mposition: absolute;[m[41m[m
+[32m+[m	[32mmargin-top:47px;[m[41m[m
+[32m+[m	[32mmargin-left:30px;[m[41m	[m
+[32m+[m[32m}[m[41m[m
+ .toggle-menu.closed-menu{[m
+ 	display:block;[m
+ 	width:50px;[m
+[36m@@ -58,6 +61,7 @@[m
+ 	[m
+ }[m
+ .sidebar{[m
+[32m+[m	[32mfont-family: 'Chakra Petch', sans-serif;[m[41m[m
+ 	display:block;[m
+ 	width:120px;[m
+ 	height:120px;[m
+[36m@@ -66,8 +70,39 @@[m
+     border-radius:10px;[m
+     float: left;[m
+ }[m
+[32m+[m[32m.sidebar> ul li a{[m[41m[m
+[32m+[m[32mdisplay: block;[m[41m[m
+[32m+[m[32mbackground: rgba(0,170,238,0.3);[m[41m[m
+[32m+[m[32mborder-radius:5px;[m[41m[m
+[32m+[m[32mmargin: 2px;[m[41m[m
+[32m+[m[32mtext-transform:uppercase;[m[41m[m
+[32m+[m[32mcolor:black;[m[41m[m
+[32m+[m[32mtext-decoration:none[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebar *{[m[41m[m
+[32m+[m	[32mmargin:0;[m[41m[m
+[32m+[m	[32mpadding:0;[m[41m[m
+[32m+[m[32m}[m[41m [m
+[32m+[m[32m.sidebar li a:hover{[m[41m[m
+[32m+[m	[32mbackground:#0d385dd9;[m[41m[m
+[32m+[m	[32mcolor:#2aa59a;[m[41m[m
+[32m+[m	[32mbox-shadow:1px #325f86;[m[41m[m
+[32m+[m	[32mtransition: all 0,2s cubic-bezier(0.45, 0.05, 0.55, 0.95)[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebar li ul{[m[41m[m
+[32m+[m	[32mdisplay: none;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebar li:hover>ul{[m[41m[m
+[32m+[m	[32mdisplay:block;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m[m
+ [m
+ .login-avatar.closed{[m
+[32m+[m[32m    position:absolute;[m[41m[m
+ 	display:inline-block;[m
+ 	width:140px;[m
+ 	height:80px;[m
+[36m@@ -75,20 +110,23 @@[m
+ 	border: 2px solid black;[m
+ 	border-radius:10px;[m
+ 	background-color: #0026FF;[m
+[31m-	margin-left:300px;[m
+[31m-	margin-bottom: 5px;[m
+[32m+[m	[32mbottom: 315px;[m[41m[m
+[32m+[m	[32mmargin-left:250px;[m[41m[m
+ }[m
+ [m
+ .login-avatar.opened{[m
+[32m+[m	[32mposition:absolute;[m[41m[m
+ 	display:inline-block;[m
+ 	width:140px;[m
+ 	height:80px;[m
+ 	cursor:pointer;[m
+ 	border: 2px solid #0026FF;[m
+ 	border-radius:10px;[m
+[31m-	background-color: black[m
+[31m-	margin-left:300px;[m
+[31m-	margin-bottom: 5px;[m
+[32m+[m	[32mbackground-color: black;[m[41m[m
+[32m+[m	[32mbottom: 315px;[m[41m[m
+[32m+[m	[32mmargin-left:250px;[m[41m	[m
+[32m+[m[41m[m
+[32m+[m[41m	[m
+ [m
+ }[m
+ .avatar{[m
+[36m@@ -119,12 +157,42 @@[m
+ }[m
+ [m
+ .sidebarLoginAvatarOpened{[m
+[32m+[m	[32mfont-family: 'Chakra Petch', sans-serif;[m[41m[m
+ 	display:inline-block;[m
+ 	width:120px;[m
+ 	height:120px;[m
+     border: 2px solid black;[m
+     background-color: #0026FF;[m
+[31m-    border-radius:10px;   [m
+[32m+[m[32m    border-radius:10px;[m[41m  [m
+ }[m
+ .sidebarLoginAvatarClosed{[m
+[31m-	display:none;[m
+\ No newline at end of file[m
+[32m+[m	[32mdisplay:none;}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32mli{[m[41m[m
+[32m+[m[32mlist-style-type: none;[m[41m [m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebarLoginAvatarOpened > ul li a{[m[41m[m
+[32m+[m[32mdisplay: block;[m[41m[m
+[32m+[m[32mbackground: rgba(0,170,238,0.3);[m[41m[m
+[32m+[m[32mborder-radius:5px;[m[41m[m
+[32m+[m[32mmargin: 2px;[m[41m[m
+[32m+[m[32mtext-transform:uppercase;[m[41m[m
+[32m+[m[32mcolor:black;[m[41m[m
+[32m+[m[32mtext-decoration:none[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebarLoginAvatarOpened > ul{[m[41m[m
+[32m+[m	[32mmargin:4px;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebarLoginAvatarOpened *{[m[41m[m
+[32m+[m	[32mmargin:0;[m[41m[m
+[32m+[m	[32mpadding:0;[m[41m[m
+[32m+[m[32m}[m[41m [m
+[32m+[m[32m.sidebarLoginAvatarOpened li a:hover{[m[41m[m
+[32m+[m	[32mbackground:#0d385dd9;[m[41m[m
+[32m+[m	[32mcolor:#2aa59a;[m[41m[m
+[32m+[m	[32mbox-shadow:1px #325f86;[m[41m[m
+[32m+[m	[32mtransition: all 0,2s cubic-bezier(0.45, 0.05, 0.55, 0.95)[m[41m[m
+[32m+[m[32m}[m[41m[m
+[41m+[m
+[41m+[m
+[41m+[m
+
+[33mcommit 647bc1a2c64208ec5a96fad987561f84870ba74e[m
+Author: Aleksei <dmb2009isr@bk.ru>
+Date:   Thu Nov 22 13:25:56 2018 +0700
+
+    init repo
+
+[1mdiff --git a/img/20180908_064200.jpg b/img/20180908_064200.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..f2fb31f[m
+Binary files /dev/null and b/img/20180908_064200.jpg differ
+[1mdiff --git a/img/Qa4jVA2NPXM.jpg b/img/Qa4jVA2NPXM.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..d1081cb[m
+Binary files /dev/null and b/img/Qa4jVA2NPXM.jpg differ
+[1mdiff --git a/img/Thumbs.db b/img/Thumbs.db[m
+[1mnew file mode 100755[m
+[1mindex 0000000..f2095e6[m
+Binary files /dev/null and b/img/Thumbs.db differ
+[1mdiff --git a/img/content.jpg b/img/content.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..901ad9b[m
+Binary files /dev/null and b/img/content.jpg differ
+[1mdiff --git a/img/future1.jpg b/img/future1.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..2ae20a0[m
+Binary files /dev/null and b/img/future1.jpg differ
+[1mdiff --git a/img/heder.jpg b/img/heder.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..94c963e[m
+Binary files /dev/null and b/img/heder.jpg differ
+[1mdiff --git a/img/trank.jpg b/img/trank.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..964a0d8[m
+Binary files /dev/null and b/img/trank.jpg differ
+[1mdiff --git a/img/undefinedUser.jpg b/img/undefinedUser.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..6398269[m
+Binary files /dev/null and b/img/undefinedUser.jpg differ
+[1mdiff --git a/img/z_e6406bb4.jpg b/img/z_e6406bb4.jpg[m
+[1mnew file mode 100755[m
+[1mindex 0000000..89724dc[m
+Binary files /dev/null and b/img/z_e6406bb4.jpg differ
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100755[m
+[1mindex 0000000..dc409df[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,52 @@[m
+[32m+[m[32m<!DOCTYPE html>[m[41m[m
+[32m+[m[32m<html>[m[41m[m
+[32m+[m[32m<head>[m[41m[m
+[32m+[m[32m<meta charset="utf-8">[m[41m [m
+[32m+[m[32m<link rel="stylesheet" type="text/css" href="mainStyle.css" />[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m<title> Welcom to the Future!!! </title>[m[41m[m
+[32m+[m[32m</head>[m[41m[m
+[32m+[m[32m<body>[m[41m[m
+[32m+[m	[32m<div id="jsAppContainer" class="app-container closed-sidebar">[m[41m[m
+[32m+[m	[32m  <audio src="./musik/musikkosmos.mp3" autoplay="autoplay" loop="-1" controls=""> </audio>[m[41m[m
+[32m+[m		[32m<div class="header-content-container">[m[41m[m
+[32m+[m			[32m<div class="header">[m[41m[m
+[32m+[m		[32m            <div class="menu">[m[41m[m
+[32m+[m		[41m            [m	[32m<button id="jsSidebarMenuButton" class="toggle-menu closed-menu">menu</button>[m[41m[m
+[32m+[m		[32m            </div>[m[41m[m
+[32m+[m[41m[m
+[32m+[m		[32m            <div id = "jsDivLoginAvatar" class="login-avatar closed ">[m[41m[m
+[32m+[m		[32m                <div id="imgAvatar" class="avatar"></div>[m[41m[m
+[32m+[m[41m		            	 [m
+[32m+[m[41m		               [m
+[32m+[m		[32m                <div id="strLogin" class="login">[m[41m[m
+[32m+[m		[41m                [m	[32mUNDEFINED[m[41m		                 [m
+[32m+[m		[32m                </div>[m[41m[m
+[32m+[m		[32m            </div>[m[41m	       [m
+[32m+[m		[32m    </div>[m[41m         	            [m
+[32m+[m[41m		              	            [m
+[32m+[m		[32m    <div class="content">[m[41m  [m
+[32m+[m	[32m            <h1> Your future begins now </h1>[m[41m[m
+[32m+[m	[32m        </div>[m[41m   [m
+[32m+[m	[32m    </div>[m[41m[m
+[32m+[m	[32m    <div class="sidebar">[m[41m[m
+[32m+[m	[41m    [m	[32m<ul>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>New game</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Load</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Save</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Options</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Exit</li>[m[41m[m
+[32m+[m	[41m    [m	[32m</ul>[m[41m[m
+[32m+[m	[32m    </div>[m[41m	[m
+[32m+[m	[32m    <div id="jsMenuLoginAvatar" class="sidebarLoginAvatarClosed">[m[41m[m
+[32m+[m	[41m    [m	[32m<ul>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Profile</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Componi Profile</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Setting</li>[m[41m[m
+[32m+[m	[41m    [m	[32m   <li>Logout</li>[m[41m[m
+[32m+[m	[41m    [m	[32m</ul>[m[41m[m
+[32m+[m	[32m    </div>[m[41m	[m
+[32m+[m	[32m</div>[m[41m[m
+[32m+[m[32m    <script type="text/javascript" src ="./mainjs.js"></script>[m[41m[m
+[32m+[m[32m</body>[m[41m[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/mainStyle.css b/mainStyle.css[m
+[1mnew file mode 100755[m
+[1mindex 0000000..a77771b[m
+[1m--- /dev/null[m
+[1m+++ b/mainStyle.css[m
+[36m@@ -0,0 +1,130 @@[m
+[32m+[m[32m.header-content-container {[m[41m[m
+[32m+[m	[32mdisplay: inline-block;[m[41m[m
+[32m+[m	[32mwidth: calc(100% - 200px);[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.header {[m[41m[m
+[32m+[m	[32mbackground: url(img/heder.jpg)center center no-repeat;[m[41m[m
+[32m+[m	[32mcolor: #fff;[m[41m[m
+[32m+[m	[32mtext-align: left;[m[41m[m
+[32m+[m	[32mbackground-size: cover;/* резиновый фон*/[m[41m[m
+[32m+[m	[32mpadding: 50px ;[m[41m[m
+[32m+[m	[32mmargin-bottom: 10px;[m[41m[m
+[32m+[m	[32mheight: 50px;[m[41m[m
+[32m+[m	[32mborder: 4px solid black;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.content{[m[41m[m
+[32m+[m	[32mbackground: url(img/content.jpg)center center no-repeat;[m[41m[m
+[32m+[m	[32mcolor: #0026FF;[m[41m[m
+[32m+[m	[32mtext-align: left;[m[41m[m
+[32m+[m	[32mbackground-size: cover;/* резиновый фон*/[m[41m[m
+[32m+[m	[32mpadding:[m[41m [m
+[32m+[m	[32mwidth: 100%;[m[41m[m
+[32m+[m[32m    height: 340px;[m[41m[m
+[32m+[m[32m    border: 4px solid black;[m[41m[m
+[32m+[m	[32mmargin-top: 10px;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.toggle-menu.closed-menu{[m[41m[m
+[32m+[m	[32mdisplay:block;[m[41m[m
+[32m+[m	[32mwidth:50px;[m[41m[m
+[32m+[m	[32mheight:50px;[m[41m[m
+[32m+[m	[32mcursor:pointer;[m[41m[m
+[32m+[m	[32mborder: 2px solid black;[m[41m[m
+[32m+[m	[32mborder-radius:10px;[m[41m[m
+[32m+[m	[32mbackground-color: #0026FF;[m[41m[m
+[32m+[m[41m	[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.toggle-menu.opened-menu{[m[41m[m
+[32m+[m	[32mdisplay:block;[m[41m[m
+[32m+[m	[32mcolor:red;[m[41m [m
+[32m+[m	[32mwidth:50px;[m[41m[m
+[32m+[m	[32mheight:50px;[m[41m[m
+[32m+[m	[32mcursor:pointer;[m[41m[m
+[32m+[m	[32mborder: 2px solid #0026FF;[m[41m[m
+[32m+[m	[32mborder-radius:10px;[m[41m[m
+[32m+[m	[32mbackground-color: black;[m[41m[m
+[32m+[m	[32mcolor:#0026FF;[m[41m[m
+[32m+[m[41m	[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.app-container.opened-sidebar .sidebar {[m[41m[m
+[32m+[m	[32mdisplay: inline-block;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.app-container.closed-sidebar .sidebar {[m[41m[m
+[32m+[m	[32mdisplay: none;[m[41m[m
+[32m+[m[41m	[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebar{[m[41m[m
+[32m+[m	[32mdisplay:block;[m[41m[m
+[32m+[m	[32mwidth:120px;[m[41m[m
+[32m+[m	[32mheight:120px;[m[41m[m
+[32m+[m[32m    border: 2px solid black;[m[41m[m
+[32m+[m[32m    background-color: #0026FF;[m[41m[m
+[32m+[m[32m    border-radius:10px;[m[41m[m
+[32m+[m[32m    float: left;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.login-avatar.closed{[m[41m[m
+[32m+[m	[32mdisplay:inline-block;[m[41m[m
+[32m+[m	[32mwidth:140px;[m[41m[m
+[32m+[m	[32mheight:80px;[m[41m[m
+[32m+[m	[32mcursor:pointer;[m[41m[m
+[32m+[m	[32mborder: 2px solid black;[m[41m[m
+[32m+[m	[32mborder-radius:10px;[m[41m[m
+[32m+[m	[32mbackground-color: #0026FF;[m[41m[m
+[32m+[m	[32mmargin-left:300px;[m[41m[m
+[32m+[m	[32mmargin-bottom: 5px;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.login-avatar.opened{[m[41m[m
+[32m+[m	[32mdisplay:inline-block;[m[41m[m
+[32m+[m	[32mwidth:140px;[m[41m[m
+[32m+[m	[32mheight:80px;[m[41m[m
+[32m+[m	[32mcursor:pointer;[m[41m[m
+[32m+[m	[32mborder: 2px solid #0026FF;[m[41m[m
+[32m+[m	[32mborder-radius:10px;[m[41m[m
+[32m+[m	[32mbackground-color: black[m[41m[m
+[32m+[m	[32mmargin-left:300px;[m[41m[m
+[32m+[m	[32mmargin-bottom: 5px;[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.avatar{[m[41m[m
+[32m+[m	[32mbackground:url(img/undefinedUser.jpg );[m[41m[m
+[32m+[m	[32mbackground-size: 60px;[m[41m[m
+[32m+[m	[32mdisplay:block;[m[41m[m
+[32m+[m	[32mwidth:60px;[m[41m[m
+[32m+[m	[32mheight:60px;[m[41m[m
+[32m+[m	[32mborder: 2px solid black;[m[41m[m
+[32m+[m	[32mborder-radius:10px;[m[41m[m
+[32m+[m	[32mmargin-bottom: 5px;[m[41m[m
+[32m+[m	[32mmargin-top: 7px;[m[41m[m
+[32m+[m	[32mmargin-left: 5px;[m[41m[m
+[32m+[m	[32mfloat: left;[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.login{[m[41m[m
+[32m+[m	[32mdisplay:block;[m[41m[m
+[32m+[m	[32mcolor: black;[m[41m[m
+[32m+[m	[32mbackground:#0026FF;[m[41m[m
+[32m+[m	[32mfont: 50%[m[41m[m
+[32m+[m	[32mwidth:60px;[m[41m[m
+[32m+[m	[32mheight:60px;[m[41m[m
+[32m+[m	[32mborder: 2px solid black;[m[41m[m
+[32m+[m	[32mborder-radius:10px;[m[41m[m
+[32m+[m	[32mtext-align: center;[m[41m[m
+[32m+[m	[32mmargin: 7px 5px 5px 70px;[m[41m[m
+[32m+[m[41m	[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m.sidebarLoginAvatarOpened{[m[41m[m
+[32m+[m	[32mdisplay:inline-block;[m[41m[m
+[32m+[m	[32mwidth:120px;[m[41m[m
+[32m+[m	[32mheight:120px;[m[41m[m
+[32m+[m[32m    border: 2px solid black;[m[41m[m
+[32m+[m[32m    background-color: #0026FF;[m[41m[m
+[32m+[m[32m    border-radius:10px;[m[41m   [m
+[32m+[m[32m}[m[41m[m
+[32m+[m[32m.sidebarLoginAvatarClosed{[m[41m[m
+[32m+[m	[32mdisplay:none;[m
+\ No newline at end of file[m
+[1mdiff --git a/mainjs.js b/mainjs.js[m
+[1mnew file mode 100755[m
+[1mindex 0000000..0ea0765[m
+[1m--- /dev/null[m
+[1m+++ b/mainjs.js[m
+[36m@@ -0,0 +1,52 @@[m
+[32m+[m[32mdocument.addEventListener('DOMContentLoaded', ready);[m[41m[m
+[32m+[m[32m    var user = {login:"Leha", avatar:"http://avataras.net.ru/games/g162.jpg"};[m[41m[m
+[32m+[m[32m    console.log(user.avatar);[m[41m[m
+[32m+[m[32m    user = JSON.stringify(user);[m[41m[m
+[32m+[m[32m    console.log(user);[m[41m[m
+[32m+[m[32m    localStorage.setItem('bot',user);[m[41m[m
+[32m+[m[32m    var userReturn = localStorage.getItem('bot');[m[41m[m
+[32m+[m[32m    userReturn=JSON.parse(userReturn);[m[41m[m
+[32m+[m[32m    console.log(userReturn.avatar);[m[41m[m
+[32m+[m[41m    [m
+[32m+[m[32m    function ready () {[m[41m[m
+[32m+[m	[32m  console.log('ready');[m[41m[m
+[32m+[m	[32m  document.getElementById('imgAvatar').style.background= 'url("'+userReturn.avatar+'")';[m[41m[m
+[32m+[m	[32m  console.log('url("'+userReturn.avatar+'")');[m[41m[m
+[32m+[m	[32m  console.log(userReturn.login)[m[41m[m
+[32m+[m	[32m  document.getElementById('strLogin').innerHTML = userReturn.login;[m[41m[m
+[32m+[m[41m	   [m
+[32m+[m	[32m  var sidebarMenuButton = document.getElementById('jsSidebarMenuButton');[m[41m	[m
+[32m+[m	[32m  var appContainer = document.getElementById('jsAppContainer');[m[41m[m
+[32m+[m	[32m  sidebarMenuButton.onclick = handleSidebarMenuButtonClick;[m[41m[m
+[32m+[m[41m[m
+[32m+[m	[32m  function handleSidebarMenuButtonClick(event) {[m[41m[m
+[32m+[m	[32m    var button = event.target;[m[41m[m
+[32m+[m[32m        console.log(button.classList);[m[41m[m
+[32m+[m[32m        console.log(event.type + "на" + event.currentTarget);[m[41m[m
+[32m+[m[32m        button.classList.toggle('opened-menu');[m[41m[m
+[32m+[m[32m        button.classList.toggle('closed-menu');[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m        appContainer.classList.toggle('opened-sidebar');[m[41m[m
+[32m+[m[32m        appContainer.classList.toggle('closed-sidebar');[m[41m[m
+[32m+[m[32m    }[m[41m[m
+[32m+[m[32m      var avatarLoginButton = document.getElementById('jsDivLoginAvatar');[m[41m[m
+[32m+[m[32m      var menuLoginAvatar = document.getElementById('jsMenuLoginAvatar');[m[41m[m
+[32m+[m	[32m  avatarLoginButton.onclick = handleAvatarLoginClick;[m[41m[m
+[32m+[m[41m     [m
+[32m+[m[32m      function handleAvatarLoginClick(event) {[m[41m[m
+[32m+[m[32m        var buttonAva = event.target;[m[41m[m
+[32m+[m[32m        console.log(buttonAva.classList);[m[41m[m
+[32m+[m[32m        buttonAva.classList.toggle('opened');[m[41m[m
+[32m+[m[32m        buttonAva.classList.toggle('closed');[m[41m[m
+[32m+[m[41m        [m
+[32m+[m[32m        menuLoginAvatar.classList.toggle('sidebarLoginAvatarOpened');[m[41m[m
+[32m+[m[32m        menuLoginAvatar.classList.toggle('sidebarLoginAvatarClosed');[m[41m[m
+[32m+[m[41m        [m
+[32m+[m[41m[m
+[32m+[m[41m[m
+[32m+[m[41m	 [m
+[32m+[m[41m[m
+[32m+[m[32m     }[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m}[m[41m[m
+[32m+[m[41m	[m
+[1mdiff --git a/musik/musikkosmos.mp3 b/musik/musikkosmos.mp3[m
+[1mnew file mode 100755[m
+[1mindex 0000000..8a8e56c[m
+Binary files /dev/null and b/musik/musikkosmos.mp3 differ
+
+[33mcommit e8f7f21cee875d59c6b0943b2e85dbe11d7ed8bd[m
+Author: AlekseiGurin <45246831+AlekseiGurin@users.noreply.github.com>
+Date:   Thu Nov 22 11:47:53 2018 +0700
+
+    Initial commit
+
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0a6102a[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32m# WorkSpace[m
+[32m+[m[32mfirst experience[m
