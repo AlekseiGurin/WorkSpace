@@ -19,7 +19,7 @@
 	color: #0026FF;
 	text-align: left;
 	background-size: cover;/* резиновый фон*/
-	padding: 
+	/*padding: */
 	width: 100%;
     height: 340px;
     border: 4px solid black;
@@ -147,15 +147,16 @@ text-decoration:none
 	border: 2px solid #0026FF;
 	border-radius:10px;
 	background-color: black;
-	bottom: 315px;
-		
+	margin-left:300px;
+	margin-bottom: 5px;
 
-	
 
 }
 .avatar{
-	background:url(img/undefinedUser.jpg );
-	background-size: contain;
+
+	background:url(img/undefinedUser.jpg);
+	background-size: 60px;/* background:url(img/undefinedUser.jpg );
+	                         background-size: contain;*/
 	display:block;
 	width:60px;
 	height:60px;
@@ -170,7 +171,7 @@ text-decoration:none
 	display:block;
 	color: black;
 	background:#0026FF;
-	font: 50%
+	/*font: 50%*/
 	width:60px;
 	height:60px;
 	border: 2px solid black;
@@ -221,5 +222,40 @@ text-decoration:none
     transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
 }
 
+.sidebarLoginAvatarClosed {
+	display: none;
+}
 
+@keyframes homosexual-colors {
+	0% {
+		color: red;
+	}
+	15% {
+		color: orange;
+	}
+	30% {
+		color: yellow;
+	}
+	45% {
+		color: green;
+	}
+	60% {
+		color: lightblue;
+	}
+	80% {
+		color: blue;
+	}
+	100% {
+		color: blueviolet;
+	}
+ }
+
+.potato-alex-text {
+	position: fixed;
+	left: 40%;
+	top: 40%;
+	font-size: 90px;
+	font-weight: bold;
+	animation: homosexual-colors .5s infinite linear;
+}
 
