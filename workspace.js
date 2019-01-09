@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', ready);
 
             appContainer.classList.toggle('opened-sidebar');
             appContainer.classList.toggle('closed-sidebar');
-        }
+        };
+        
         var avatarLoginButton = document.getElementById('jsDivLoginAvatar');
         var menuLoginAvatar = document.getElementById('jsMenuLoginAvatar');
 	    avatarLoginButton.onclick = handleAvatarLoginClick;
