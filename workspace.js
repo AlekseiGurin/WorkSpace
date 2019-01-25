@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', ready);
 	    function handleSidebarMenuButtonClick(event) {
             var sidebarMenuButton = document.getElementById('jsSidebarMenuButton'); 
             var appContainer = document.getElementById('jsAppContainer');
-            sidebarMenuButton.onclick = handleSidebarMenuButtonClick;
 	        var button = event.target;
             console.log(button.classList);
             console.log(event.type + "на" + event.currentTarget);
@@ -48,9 +47,49 @@ document.addEventListener('DOMContentLoaded', ready);
             var exitLog = document.getElementById('logOut');
             exitLog.onclick = handleLogaut;
             function handleLogaut(){
-            console.log('LOGOUT');
-        }
-    }
+                console.log('LOGOUT');
+            };
+        };
 
-}
-	
+        var numberColumn = 1;
+        document.getElementById('addColumn').onclick = function () {
+            var elemContent = document.getElementById('jsContent');
+            var divColumn = document.createElement('div');
+            divColumn.className = 'column';
+            divColumn.id = 'jsColumn'+ numberColumn;
+            var column = divColumn.id;
+            elemContent.appendChild(divColumn);
+            divColumn.innerHTML = '<strong>Column №</strong>' + numberColumn;
+            var elemColumn = document. getElementById('jsColumn' + numberColumn);
+            var columnButton = document.createElement('button');
+            columnButton.className = 'buttonAddRow';
+            columnButton.id = 'jsButtonAddRow' + numberColumn;
+            elemColumn.appendChild(columnButton);
+            columnButton.innerHTML = '<strong>add row</strong>';
+            var numberRowInColumn = 1;
+
+            document.getElementById(columnButton.id).onclick = function () {
+                console.log(numberRowInColumn);
+                var elemRow = document.createElement('p');
+                elemRow.className = 'elemRowStyle';
+                elemRow.id = columnButton.id + numberRowInColumn;
+                elemColumn.appendChild(elemRow);
+                elemRow.innerHTML = 'row' + numberRowInColumn + '<br>Dependecies</br>';
+                
+                document.getElementById(columnButton.id + numberRowInColumn).onclick = function () {
+                    var row = event.target;
+                    var rowInColumn = row.parentNode.getElementsByTagName('p');
+                    for (i = 0; i < rowInColumn.length; i++) {
+                        if (rowInColumn[i].id === row.id ) {
+                            row.classList.toggle('selectRow');
+                            row.classList.toggle('elemRowStyle');
+                        } else {
+                            rowInColumn[i].classList = 'elemRowStyle';
+                        };
+                    };  
+                };
+                numberRowInColumn++; 
+            };
+            numberColumn++;
+        };
+    };

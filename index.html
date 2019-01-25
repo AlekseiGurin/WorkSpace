@@ -6,31 +6,45 @@
 	<link href="https://fonts.googleapis.com/css?family=Chakra+Petch:300i" rel="stylesheet">
 	<script src="https://use.fontawesome.com/58794203b7.js"></script>
 	<title> Welcome to the Future!!! </title>
-
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 </head>
 <body>
 	<div id="jsAppContainer" class="app-container closed-sidebar">
-		
 		<div class="header-content-container">
   			<div class="header">
-  				<div class="conteinerMusic"><audio src="./music/musicSpace.mp3" autoplay="autoplay" loop="-1" controls=""> </audio></div>
+  				<div class="musicContainer">
+  					<audio src="./music/musicSpace.mp3" autoplay="autoplay" loop="-1" controls=""/>
+  				</div>
 		    	<div class="menu">
-		    		<button id="jsSidebarMenuButton" class="toggle-menu closed-menu"><a href = "#">menu</a></button>
+		    		<button id="jsSidebarMenuButton" class="toggle-menu closed-menu">
+		    		menu</button>
 		    	</div>
 		    	<div id = "jsDivLoginAvatar" class="login-avatar closed ">
 		        	<div id="imgAvatar" class="avatar"></div>
 		        	<div id="strLogin" class="login">UNDEFINED</div>
 		    	</div>	       
 			</div>         	                          	            
-			<div class="content">  
-	        	<div class="h1-text">Your future begins now 
-	        	</div>
+			<div id="jsContent" class="content"> 
+				<div class="h1-text">Your future begins now</div>
+			    <button id="addColumn" class="buttonAddColumn">add column</button> 
 	        	<div id="jsMenuLoginAvatar" class="sidebarLoginAvatarClosed">
 	    			<ul>
-	    	  	 		<li><a href = "#"><i class="fa fa-address-card" aria-hidden="true"></i>Profile</a></li>
-	    	   			<li><a href = "#"><i class="fa fa-apple" aria-hidden="true"></i>Compani Profile</a></li>
-	    	   			<li><a href = "#"><i class="fa fa-cog" aria-hidden="true"></i>Setting</a></li>
-	    	   			<li id="logOut"><a href = "#"><i class="fa fa-undo" aria-hidden="true"></i>Logout</a></li>
+	    	  	 		<li>
+	    	  	 			<a href = "#">
+	    	  	 				<i class="fa fa-address-card" aria-hidden="true">	
+	    	  	 				</i>Profile
+	    	  	 			</a>
+	    	  	 		</li>
+	    	   			<li>
+	    	   				<a href = "#"><i class="fa fa-apple" aria-hidden="true"></i>Compani Profile
+	    	   				</a>
+	    	   			</li>
+	    	   			<li>
+	    	   				<a href = "#"><i class="fa fa-cog" aria-hidden="true"></i>Setting</a>
+	    	   			</li>
+	    	   			<li id="logOut">
+	    	   				<a href = "#"><i class="fa fa-undo" aria-hidden="true"></i>Logout</a>
+	    	   			</li>
 	    			</ul>
 	    		</div>
 	    	</div>   
