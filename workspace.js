@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', ready);
-    var user = {login:"Leha", avatar:"http://avataras.net.ru/games/g162.jpg"};
+    var user = {login:"<p>Leha</p>", avatar:"http://avataras.net.ru/games/g162.jpg"};
     console.log(user.avatar);
     user = JSON.stringify(user);
     console.log(user);
     localStorage.setItem('bot',user);
     var userReturn = localStorage.getItem('bot');
-    userReturn=JSON.parse(userReturn);
+    userReturn = JSON.parse(userReturn);
     console.log(userReturn.avatar);
     
     function ready () {
 	    console.log('ready');
-	    document.getElementById('imgAvatar').style.background= 'url("'+userReturn.avatar+'")';
+	    document.getElementById('imgAvatar').style.background = 'url("'+userReturn.avatar+'")';
 	    console.log('url("'+userReturn.avatar+'")');
 	    console.log(userReturn.login)
 	    document.getElementById('strLogin').innerHTML = userReturn.login;
@@ -52,15 +52,15 @@ document.addEventListener('DOMContentLoaded', ready);
         };
 
         var numberColumn = 1;
-        document.getElementById('addColumn').onclick = function () {
-            var elemContent = document.getElementById('jsContent');
+        $('#addColumn').click(function() {
+            var elemContent = $('#jsContent')[0];
             var divColumn = document.createElement('div');
             divColumn.className = 'column';
-            divColumn.id = 'jsColumn'+ numberColumn;
+            divColumn.id = 'Column '+ numberColumn;
             var column = divColumn.id;
             elemContent.appendChild(divColumn);
             divColumn.innerHTML = '<strong>Column №</strong>' + numberColumn;
-            var elemColumn = document. getElementById('jsColumn' + numberColumn);
+            var elemColumn = document. getElementById(divColumn.id);
             var columnButton = document.createElement('button');
             columnButton.className = 'buttonAddRow';
             columnButton.id = 'jsButtonAddRow' + numberColumn;
@@ -69,27 +69,36 @@ document.addEventListener('DOMContentLoaded', ready);
             var numberRowInColumn = 1;
 
             document.getElementById(columnButton.id).onclick = function () {
-                console.log(numberRowInColumn);
                 var elemRow = document.createElement('p');
                 elemRow.className = 'elemRowStyle';
-                elemRow.id = columnButton.id + numberRowInColumn;
+                elemRow.id = divColumn.id + ' Row ' + numberRowInColumn;
                 elemColumn.appendChild(elemRow);
                 elemRow.innerHTML = 'row' + numberRowInColumn + '<br>Dependecies</br>';
-                
-                document.getElementById(columnButton.id + numberRowInColumn).onclick = function () {
+
+                document.getElementById(elemRow.id).onclick = function () {
                     var row = event.target;
-                    var rowInColumn = row.parentNode.getElementsByTagName('p');
-                    for (i = 0; i < rowInColumn.length; i++) {
-                        if (rowInColumn[i].id === row.id ) {
-                            row.classList.toggle('selectRow');
-                            row.classList.toggle('elemRowStyle');
+                    var rowInBody = row.parentNode.parentNode.getElementsByTagName('p');
+                    var rovInColumn = row.parentNode.getElementsByTagName('p');
+                    row.classList.toggle('selectRow');
+                    row.classList.toggle('elemRowStyle');
+                    var selectRow = document.getElementsByClassName('selectRow')
+                    for (i = 0; i < selectRow.length; i++) { 
+                        if (selectRow[i].parentNode.id !== row.parentNode.id ) {
+                            row.innerHTML += selectRow[i].id;
+                            for (j = 0; j < rowInBody.length; j++) {
+                                rowInBody[j].classList = 'elemRowStyle';      
+                            };
                         } else {
-                            rowInColumn[i].classList = 'elemRowStyle';
+                            for (y = 0; y < rovInColumn.length; y++) {
+                                if (rovInColumn[y].id !== row.id) {
+                                    rovInColumn[y].classList = 'elemRowStyle';
+                                };
+                            };
                         };
-                    };  
+                    };         
                 };
                 numberRowInColumn++; 
             };
             numberColumn++;
-        };
+        });
     };
